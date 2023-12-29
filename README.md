@@ -9,6 +9,10 @@ This tool simplifies mounting and dismounting containers with *keyfiles* on Vera
 > Currently this tool supports only Windows, due some different arguments by VeraCrypt on Linux-Distros.
 > I'll add support for Linux in a later stage.
 
+## Missing Features
+I'll add following missing features:
+- Linux support
+- Support for containers without a keyfile
 
 ## Installation
 Invoke this tool with `python main.py show`. It creates two files:  
@@ -18,7 +22,7 @@ Invoke this tool with `python main.py show`. It creates two files:
 The `path.conf` holds the path to the `mount.ini`, so you can configure it as you like. 
 And the `mount.ini` contains various configurations for mounting containers.
 
-### `mount.ini` 
+### mount.ini
 The options are adapted from [VeraCrypt](https://www.veracrypt.fr/en/Command%20Line%20Usage.html).  
 You can create multiple sections for every container you want to mount. Just keep in mind, to fill in every
 option with a value.  
@@ -33,6 +37,24 @@ option with a value.
 | **nowaitdlg**         | *yes* or *no* | No: it won't display a progress bar, while mounting and dismounting                                       |
 | **savehistory**       | *yes* or *no* | No: disables saving history of mounted volumes                                                            |
 
+### Example mount.ini
+```ini
+[Foo]
+volume = C:/containers/container_foo.file
+tryemptypass = yes
+keyfiles = C:/containers/keys/foo/foo.key
+driveletter = f
+nowaitdlg = yes
+savehistory = no
+
+[Bar]
+volume = C:/containers/container_bar.file
+tryemptypass = no
+keyfiles = C:/containers/keys/bar
+driveletter = g
+nowaitdlg = no
+savehistory = no
+```
 
 ## Usage
 After you set up the configuration, you can mount your container by using their configuration names:  
