@@ -59,12 +59,12 @@ Show all containers you configured:
 
 ## Available Arguments
 
-|                 |                |                                                                           |
-|-----------------|----------------|---------------------------------------------------------------------------|
-| <container> ... | first position | Which configuration should be loaded                                      |
-| show            | first position | Shows all configuration names                                             |
-| all             | first position | Loads all configurations                                                  |
-| -d, --dismount  | optional       | If provided, it dismounts the loaded volume(s)                            |
-| -x, --dry       | optional       | If provided, it won't execute the VeryCrypt commands. Used for debugging. |
+|                  |                |                                                                           |
+|------------------|----------------|---------------------------------------------------------------------------|
+| \<container> ... | first position | Which configuration should be loaded                                      |
+| show             | first position | Shows all configuration names                                             |
+| all              | first position | Loads all configurations                                                  |
+| -d, --dismount   | optional       | If provided, it dismounts the loaded volume(s)                            |
+| -x, --dry        | optional       | If provided, it won't execute the VeryCrypt commands. Used for debugging. |
 
 
