@@ -13,6 +13,14 @@ This tool simplifies mounting and dismounting containers with *keyfiles* on Vera
 I'll add following missing features:
 - Linux support
 
+## PSA
+Always check, if a tool writes or reads into your container or keyfiles. Even if a tool has not a
+malicious intent, file IO could corrupt files and destroy your keyfiles/containers.  
+
+More information about that [topic](https://veracrypt.fr/en/Avoid%20Third-Party%20File%20Extensions.html).  
+
+This tool is designed to pass arguments to VeraCrypt. It only reads and writes to its own configuration files.  
+
 ## Installation
 Invoke this tool with `python main.py show`. It creates two files:  
 - `path.conf`
