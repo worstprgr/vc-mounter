@@ -12,7 +12,6 @@ This tool simplifies mounting and dismounting containers with *keyfiles* on Vera
 ## Missing Features
 I'll add following missing features:
 - Linux support
-- Support for containers without a keyfile
 
 ## Installation
 Invoke this tool with `python main.py show`. It creates two files:  
@@ -23,19 +22,19 @@ The `path.conf` holds the path to the `mount.ini`, so you can configure it as yo
 And the `mount.ini` contains various configurations for mounting containers.
 
 ### mount.ini
-The options are adapted from [VeraCrypt](https://www.veracrypt.fr/en/Command%20Line%20Usage.html).  
-You can create multiple sections for every container you want to mount. Just keep in mind, to fill in every
-option with a value.  
+The options are adapted from [VeraCrypt](https://www.veracrypt.fr/en/Command%20Line%20Usage.html). 
+You can create multiple sections for every container you want to mount.
 
-|                       |               |                                                                                                           |
-|-----------------------|---------------|-----------------------------------------------------------------------------------------------------------|
-| **[MyContainerName]** | string        | The config name is also the name, how you'll call it via arguments                                        |
-| **volume**            | path          | Absolute path to your container                                                                           |
-| **tryemptypass**      | *yes* or *no* | Yes: Tries an empty password first, if it fails, a password prompt appears. No: forces a password prompt. |
-| **keyfiles**          | path          | Absolute path to your keyfile or a folder, that contains (only) your keyfiles                             |
-| **driveletter**       | string        | The drive letter that should be used                                                                      |
-| **nowaitdlg**         | *yes* or *no* | No: it won't display a progress bar, while mounting and dismounting                                       |
-| **savehistory**       | *yes* or *no* | No: disables saving history of mounted volumes                                                            |
+|                       |               |                                                                                                                     |
+|-----------------------|---------------|---------------------------------------------------------------------------------------------------------------------|
+| **[MyContainerName]** | string        | The config name is also the name, how you'll call it via arguments                                                  |
+| **volume**            | path          | Absolute path to your container                                                                                     |
+| **tryemptypass**      | *yes* or *no* | Yes: Tries an empty password first, if it fails, a password prompt appears. No: forces a password prompt.           |
+| **keyfiles**          | path          | Absolute path to your keyfile or a folder, that contains (only) your keyfiles. Let it empty, if you have no keyfile |
+| **driveletter**       | string        | The drive letter that should be used                                                                                |
+| **nowaitdlg**         | *yes* or *no* | No: it won't display a progress bar, while mounting and dismounting                                                 |
+| **savehistory**       | *yes* or *no* | No: disables saving history of mounted volumes                                                                      |
+| **securedesktop**     | *yes* or *no* | No: disables the secure desktop                                                                                     |
 
 ### Example mount.ini
 ```ini
@@ -46,14 +45,16 @@ keyfiles = C:/containers/keys/foo/foo.key
 driveletter = f
 nowaitdlg = yes
 savehistory = no
+securedesktop = no
 
 [Bar]
 volume = C:/containers/container_bar.file
 tryemptypass = no
-keyfiles = C:/containers/keys/bar
+keyfiles = 
 driveletter = g
 nowaitdlg = no
 savehistory = no
+securedesktop = yes
 ```
 
 ## Usage
