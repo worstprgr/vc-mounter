@@ -6,12 +6,8 @@ This tool simplifies mounting and dismounting containers with *keyfiles* on Vera
 > Place the config file to a safe space, that is encrypted too!
 
 > [!Warning]
-> Currently this tool supports only Windows, due some different arguments by VeraCrypt on Linux-Distros.
-> I'll add support for Linux in a later stage.
-
-## Missing Features
-I'll add following missing features:
-- Linux support
+> This tool only supports Windows. Initially I wanted to support Linux as well, but I'm using bash scripts & aliases for my Veracrypt containers in Linux.
+> And so far, this approach is sufficient enough for me. But feel free to fork it and open a PR.
 
 ## PSA
 Always check, if a tool writes or reads into your container or keyfiles. Even if a tool has not a
